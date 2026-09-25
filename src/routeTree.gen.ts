@@ -10,12 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ComoTrabajamosRouteImport } from './routes/como-trabajamos'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as QuienTeAtiendeRouteImport } from './routes/quien-te-atiende'
 import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
+import { Route as SegurosRouteImport } from './routes/seguros'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ComoTrabajamosRoute = ComoTrabajamosRouteImport.update({
+  id: '/como-trabajamos',
+  path: '/como-trabajamos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuienTeAtiendeRoute = QuienTeAtiendeRouteImport.update({
@@ -28,35 +41,71 @@ const QuienesSomosRoute = QuienesSomosRouteImport.update({
   path: '/quienes-somos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SegurosRoute = SegurosRouteImport.update({
+  id: '/seguros',
+  path: '/seguros',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/faq': typeof FaqRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
+  '/seguros': typeof SegurosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/faq': typeof FaqRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
+  '/seguros': typeof SegurosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/faq': typeof FaqRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
+  '/seguros': typeof SegurosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/quien-te-atiende' | '/quienes-somos'
+  fullPaths:
+    | '/'
+    | '/como-trabajamos'
+    | '/faq'
+    | '/quien-te-atiende'
+    | '/quienes-somos'
+    | '/seguros'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/quien-te-atiende' | '/quienes-somos'
-  id: '__root__' | '/' | '/quien-te-atiende' | '/quienes-somos'
+  to:
+    | '/'
+    | '/como-trabajamos'
+    | '/faq'
+    | '/quien-te-atiende'
+    | '/quienes-somos'
+    | '/seguros'
+  id:
+    | '__root__'
+    | '/'
+    | '/como-trabajamos'
+    | '/faq'
+    | '/quien-te-atiende'
+    | '/quienes-somos'
+    | '/seguros'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ComoTrabajamosRoute: typeof ComoTrabajamosRoute
+  FaqRoute: typeof FaqRoute
   QuienTeAtiendeRoute: typeof QuienTeAtiendeRoute
   QuienesSomosRoute: typeof QuienesSomosRoute
+  SegurosRoute: typeof SegurosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +115,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/como-trabajamos': {
+      id: '/como-trabajamos'
+      path: '/como-trabajamos'
+      fullPath: '/como-trabajamos'
+      preLoaderRoute: typeof ComoTrabajamosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quien-te-atiende': {
@@ -82,13 +145,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QuienesSomosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/seguros': {
+      id: '/seguros'
+      path: '/seguros'
+      fullPath: '/seguros'
+      preLoaderRoute: typeof SegurosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ComoTrabajamosRoute: ComoTrabajamosRoute,
+  FaqRoute: FaqRoute,
   QuienTeAtiendeRoute: QuienTeAtiendeRoute,
   QuienesSomosRoute: QuienesSomosRoute,
+  SegurosRoute: SegurosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
