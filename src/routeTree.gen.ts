@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as ComoTrabajamosRouteImport } from './routes/como-trabajamos'
+import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as PoliticaDePrivacidadRouteImport } from './routes/politica-de-privacidad'
 import { Route as QuienTeAtiendeRouteImport } from './routes/quien-te-atiende'
 import { Route as QuienesSomosRouteImport } from './routes/quienes-somos'
 import { Route as SegurosRouteImport } from './routes/seguros'
@@ -21,14 +24,29 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AvisoLegalRoute = AvisoLegalRouteImport.update({
+  id: '/aviso-legal',
+  path: '/aviso-legal',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ComoTrabajamosRoute = ComoTrabajamosRouteImport.update({
   id: '/como-trabajamos',
   path: '/como-trabajamos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadRoute = PoliticaDePrivacidadRouteImport.update({
+  id: '/politica-de-privacidad',
+  path: '/politica-de-privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuienTeAtiendeRoute = QuienTeAtiendeRouteImport.update({
@@ -49,16 +67,22 @@ const SegurosRoute = SegurosRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/seguros': typeof SegurosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/seguros': typeof SegurosRoute
@@ -66,8 +90,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/como-trabajamos': typeof ComoTrabajamosRoute
+  '/contacto': typeof ContactoRoute
   '/faq': typeof FaqRoute
+  '/politica-de-privacidad': typeof PoliticaDePrivacidadRoute
   '/quien-te-atiende': typeof QuienTeAtiendeRoute
   '/quienes-somos': typeof QuienesSomosRoute
   '/seguros': typeof SegurosRoute
@@ -76,24 +103,33 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aviso-legal'
     | '/como-trabajamos'
+    | '/contacto'
     | '/faq'
+    | '/politica-de-privacidad'
     | '/quien-te-atiende'
     | '/quienes-somos'
     | '/seguros'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aviso-legal'
     | '/como-trabajamos'
+    | '/contacto'
     | '/faq'
+    | '/politica-de-privacidad'
     | '/quien-te-atiende'
     | '/quienes-somos'
     | '/seguros'
   id:
     | '__root__'
     | '/'
+    | '/aviso-legal'
     | '/como-trabajamos'
+    | '/contacto'
     | '/faq'
+    | '/politica-de-privacidad'
     | '/quien-te-atiende'
     | '/quienes-somos'
     | '/seguros'
@@ -101,8 +137,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoLegalRoute: typeof AvisoLegalRoute
   ComoTrabajamosRoute: typeof ComoTrabajamosRoute
+  ContactoRoute: typeof ContactoRoute
   FaqRoute: typeof FaqRoute
+  PoliticaDePrivacidadRoute: typeof PoliticaDePrivacidadRoute
   QuienTeAtiendeRoute: typeof QuienTeAtiendeRoute
   QuienesSomosRoute: typeof QuienesSomosRoute
   SegurosRoute: typeof SegurosRoute
@@ -117,6 +156,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aviso-legal': {
+      id: '/aviso-legal'
+      path: '/aviso-legal'
+      fullPath: '/aviso-legal'
+      preLoaderRoute: typeof AvisoLegalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/como-trabajamos': {
       id: '/como-trabajamos'
       path: '/como-trabajamos'
@@ -124,11 +170,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ComoTrabajamosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/faq': {
       id: '/faq'
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidad': {
+      id: '/politica-de-privacidad'
+      path: '/politica-de-privacidad'
+      fullPath: '/politica-de-privacidad'
+      preLoaderRoute: typeof PoliticaDePrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quien-te-atiende': {
@@ -157,8 +217,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoLegalRoute: AvisoLegalRoute,
   ComoTrabajamosRoute: ComoTrabajamosRoute,
+  ContactoRoute: ContactoRoute,
   FaqRoute: FaqRoute,
+  PoliticaDePrivacidadRoute: PoliticaDePrivacidadRoute,
   QuienTeAtiendeRoute: QuienTeAtiendeRoute,
   QuienesSomosRoute: QuienesSomosRoute,
   SegurosRoute: SegurosRoute,
