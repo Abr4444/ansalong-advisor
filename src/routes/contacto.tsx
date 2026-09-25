@@ -6,7 +6,7 @@ import { PageIntro, meta } from "@/components/site";
 import { sendContactRequest } from "@/lib/contact.functions";
 
 export const Route = createFileRoute("/contacto")({
-  validateSearch: (search: Record<string, unknown>) => ({ asunto: typeof search.asunto === "string" ? search.asunto : undefined }),
+  validateSearch: (search: Record<string, unknown>) => ({ asunto: typeof search["asunto"] === "string" ? search["asunto"] : undefined }),
   head: () => meta("Contacto", "Contacta con GS Ansalong en Bellpuig. Pide presupuesto o revisión de tu póliza por teléfono, email o formulario. Atendemos toda Lleida."),
   component: Contact,
 });
@@ -27,7 +27,7 @@ function Contact() {
       await sendContactRequest({ data: {
         nombre: String(fields.get("nombre") ?? ""), telefono: String(fields.get("telefono") ?? ""),
         email: String(fields.get("email") ?? ""), seguro: tipo as "Coche" | "Hogar" | "Vida" | "Protección jurídica" | "Salud y dental" | "Autónomos y empresas" | "Otro",
-        mensaje: String(fields.get("mensaje") ?? ""), privacidad_aceptada: fields.get("privacidad") === "on" as true,
+        mensaje: String(fields.get("mensaje") ?? ""), privacidad_aceptada: true,
         website: String(fields.get("website") ?? ""),
       } });
       setDone(true); form.reset(); setTipo("");
