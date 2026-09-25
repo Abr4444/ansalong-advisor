@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { PageIntro, SectionCTA, meta } from "@/components/site";
 export const Route = createFileRoute("/faq")({ head: () => meta("Preguntas frecuentes", "Resolvemos tus dudas sobre presupuestos, coberturas, cambios de compañía y siniestros en GS Ansalong, Bellpuig."), component: Faq });
 const questions = [
-  ["¿Tengo que vivir cerca de vuestra oficina o ir hasta allí para contratar?", "No. Atendemos a clientes de toda la provincia de Lleida y, en muchos casos, el estudio, el presupuesto y buena parte de los trámites se pueden hacer por teléfono, email o videollamada por Teams. Si prefieres hablar en persona, puedes venir a nuestra oficina."],
+  ["¿Tengo que vivir cerca de vuestra oficina o ir hasta allí para contratar?", "No. Atendemos a clientes de todo el territorio nacional y, en muchos casos, el estudio, el presupuesto y buena parte de los trámites se pueden hacer por teléfono, email o videollamada por Teams. Si prefieres hablar en persona, puedes venir a nuestra oficina en Bellpuig (Lleida)."],
   ["¿Trabajáis con una sola aseguradora?", "No. Trabajamos con Zurich, ARAG y DKV, y te proponemos la que mejor encaja con lo que necesitas en cada caso."],
   ["¿Atendéis a autónomos y empresas?", "Sí. Tenemos seguros pensados para autónomos, comercios y pymes, desde la responsabilidad civil hasta la ciberprotección, y opciones de salud para ti y para tu equipo."],
   ["¿Pedir un presupuesto me compromete a algo?", "No. Estudiar tu caso y prepararte un presupuesto es sin compromiso."],
