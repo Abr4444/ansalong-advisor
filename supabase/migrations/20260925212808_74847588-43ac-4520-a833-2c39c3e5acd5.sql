@@ -1,0 +1,1 @@
+CREATE POLICY "Solo servicio interno gestiona solicitudes" ON public.solicitudes_contacto FOR ALL TO service_role USING (true) WITH CHECK (true);
