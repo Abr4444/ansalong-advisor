@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      solicitudes_contacto: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          mensaje: string
+          nombre: string
+          privacidad_aceptada: boolean
+          seguro: string
+          telefono: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          mensaje: string
+          nombre: string
+          privacidad_aceptada?: boolean
+          seguro: string
+          telefono: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          mensaje?: string
+          nombre?: string
+          privacidad_aceptada?: boolean
+          seguro?: string
+          telefono?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
